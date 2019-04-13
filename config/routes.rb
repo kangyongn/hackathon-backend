@@ -4,6 +4,9 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :users
       resources :posts
+
+      post '/login', to: 'auth#create'
+      get '/current_user', to: 'auth#show'
     end
   end
 end
