@@ -10,6 +10,7 @@ class Api::V1::PostsController < ApplicationController
   end
 
   def create
+
     @post = Post.new(post_params)
     if @post.save
       render json: @post, status: :created
@@ -35,7 +36,7 @@ class Api::V1::PostsController < ApplicationController
   private
 
   def post_params
-    params.permit(:user_id, :content, :assigned_to)
+    params.require(:post).permit(:user_id, :content, :assigned_to)
   end
 
   def find_post

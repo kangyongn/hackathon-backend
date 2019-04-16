@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-User.create(email:'helllo@gmail.com', password:'12345',password_confirmation:'12345',name:'maximo bautista',gender:'Male',role:'student' )
-User.create(email:'helo@gmail.com', password:'12345',password_confirmation:'12345',name:'maximo bautista',gender:'Female',role:'counselor' )
+User.create(email:'helllo@gmail.com', password:'12345',password_confirmation:'12345',name:'maximo bautista',gender:'Male',role:'Student' )
+User.create(email:'helo@gmail.com', password:'12345',password_confirmation:'12345',name:'maximo bautista',gender:'Female',role:'Counselor' )
 
-Post.create(user_id:1,assigned_to:2,content:'my life sucks')
+Post.create(user_id:1,assigned_to:2,content:'Student post Test')

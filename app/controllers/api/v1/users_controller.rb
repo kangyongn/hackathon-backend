@@ -13,9 +13,9 @@ class Api::V1::UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       @token = JWT.encode({user_id: @user.id}, "alpaca")
-     render json: { user: @user.username, jwt: @token }, status: :created
+     render json: { user: @user, jwt: @token }, status: :ok
     else
-      render json: @user.errors.full_messages , status: :unprocessable_entity
+      render json: {errors: @user.errors.full_messages } , status: :unprocessable_entity
     end
   end
 
@@ -36,7 +36,7 @@ class Api::V1::UsersController < ApplicationController
   private
 
   def user_params
-    params.permit(:email, :password, :name, :gender, :role)
+    params.require(:user).permit(:email, :password, :password_confirmation, :name, :gender, :role)
   end
 
   def find_user
